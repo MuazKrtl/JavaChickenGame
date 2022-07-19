@@ -1,0 +1,336 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Game",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1884306027 { 
+   	label=Chicken
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Chicken1884306027[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Chicken</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   animDown: Image[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   animLeft: Image[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   animRight: Image[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   animUp: Image[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   direction: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   posX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   posY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   shootDirection: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spriteCounter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   spriteNum: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   startPositionX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   startPositionY: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- loadAnims()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2000900386 { 
+   	label=Bullet
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Bullet2000900386[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Bullet</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   aimX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   aimY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   bulletX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   bulletY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   checkX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   checkY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   chicken: Chicken [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   counter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   degree: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   isShot: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   speedX: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   speedY: float [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ aimShot()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2040814 { 
+   	label=Aims
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Aims2040814[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Aims</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   aimSpeed: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   bullets: Bullet[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   counter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   height: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isBig: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   level: Level [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   point: Point [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rand: Random [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   randX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   randY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   smallOrBig: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   width: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ checkCollision(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ reload()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2211858 { 
+   	label=Game
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Game2211858[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Game</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   aims: Aims[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   bg: Image [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   bullets: Bullet[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   cat: Image [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   chicken: Chicken [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   egg: Image [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   enemies: Enemy[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   level: Level [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nest: Image [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   point: Point [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ draw(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" ># paintComponent(g: Graphics)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ run()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_67100520 { 
+   	label=Enemy
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Enemy67100520[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Enemy</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   chicken: Chicken [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   counter: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   enemySpeed: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   level: Level [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rand: Random [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   randX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   randY: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ checkCollision(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ reload()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_73313124 { 
+   	label=Level
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Level73313124[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Level</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   level: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   sound: Sound [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_77292912 { 
+   	label=Point
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Point77292912[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Point</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   points: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_80074991 { 
+   	label=Sound
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Sound80074991[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Sound</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   clip: Clip [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   soundUrl: URL[] [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ loop()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ play()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ playEffects(i: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ playMusic(i: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ stop()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ stopMusic()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Aims2040814 -> Bullet2000900386[label="bullets
+[0..*]"];
+Aims2040814 -> Level73313124[label="level
+[0..1]"];
+Aims2040814 -> Point77292912[label="point
+[0..1]"];
+Enemy67100520 -> Chicken1884306027[label="chicken
+[0..1]"];
+Enemy67100520 -> Level73313124[label="level
+[0..1]"];
+Game2211858 -> Aims2040814[label="aims
+[0..*]"];
+Game2211858 -> Bullet2000900386[label="bullets
+[0..*]"];
+Game2211858 -> Chicken1884306027[label="chicken
+[0..1]"];
+Game2211858 -> Enemy67100520[label="enemies
+[0..*]"];
+Game2211858 -> Level73313124[label="level
+[0..1]"];
+Game2211858 -> Point77292912[label="point
+[0..1]"];
+Level73313124 -> Sound80074991[label="sound
+[0..1]"];
+    
+}
+@enduml
